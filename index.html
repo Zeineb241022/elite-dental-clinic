@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b46">
+<meta name="description" content="عيادة النخبة لطب الأسنان - رعاية متكاملة لابتسامة صحية وجميلة.">
+<title>عيادة النخبة لطب الأسنان</title>
+<style>
+:root {
+  --navy: #102b46;
+  --teal: #19a7a0;
+  --light: #f3f9fa;
+  --text: #243747;
+  --muted: #687b89;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.8;
+}
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+.container { width: min(1120px, 92%); margin: auto; }
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid #e7eff2;
+}
+.nav {
+  min-height: 78px; display: flex; align-items: center;
+  justify-content: space-between; gap: 20px;
+}
+.brand { display: flex; align-items: center; gap: 11px; color: var(--navy); }
+.logo {
+  width: 45px; height: 45px; display: grid; place-items: center;
+  border-radius: 14px; background: var(--teal); color: white;
+  font-size: 26px; font-weight: bold;
+}
+.brand strong { display: block; font-size: 17px; }
+.brand small { color: var(--muted); font-size: 12px; }
+.links { display: flex; align-items: center; gap: 22px; }
+.links a { font-size: 14px; font-weight: bold; }
+.links a:hover { color: var(--teal); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 10px; padding: 12px 20px;
+  background: var(--teal); color: white; font-weight: bold;
+  cursor: pointer; transition: .2s;
+}
+.btn:hover { filter: brightness(.93); transform: translateY(-1px); }
+.btn.secondary { background: white; color: var(--navy); border: 1px solid #d8e5e9; }
+.menu-btn { display: none; }
+.hero {
+  background: linear-gradient(130deg, #f0fafa 0%, #fff 55%, #e8f4f7 100%);
+  padding: 76px 0;
+}
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 46px; }
+.tag {
+  display: inline-block; color: #087d78; background: #dff6f2;
+  padding: 6px 13px; border-radius: 30px; font-size: 13px; font-weight: bold;
+}
+h1 { color: var(--navy); font-size: clamp(32px, 4.5vw, 53px); line-height: 1.45; margin: 18px 0; }
+h1 span { color: var(--teal); }
+.hero p { color: var(--muted); font-size: 17px; max-width: 560px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.visual {
+  min-height: 360px; border-radius: 30px; background: var(--navy);
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; color: white; position: relative; overflow: hidden;
+  text-align: center; padding: 30px;
+}
+.visual::before, .visual::after {
+  content: ""; position: absolute; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.13);
+}
+.visual::before { width: 300px; height: 300px; }
+.visual::after { width: 220px; height: 220px; }
+.tooth { font-size: 125px; line-height: 1.3; z-index: 1; }
+.visual strong { font-size: 22px; z-index: 1; }
+.visual small { color: #c4dfe6; z-index: 1; }
+section { padding: 75px 0; }
+.section-head { text-align: center; max-width: 680px; margin: 0 auto 38px; }
+.section-head h2 { font-size: 32px; color: var(--navy); margin: 0 0 10px; }
+.section-head p { color: var(--muted); margin: 0; }
+.services { background: var(--light); }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card {
+  background: white; border: 1px solid #e5eff1; border-radius: 18px;
+  padding: 27px; box-shadow: 0 8px 25px rgba(16,43,70,.035);
+}
+.card-icon {
+  display: grid; place-items: center; width: 55px; height: 55px;
+  border-radius: 15px; background: #e0f7f4; font-size: 28px;
+}
+.card h3 { color: var(--navy); margin: 17px 0 8px; }
+.card p { color: var(--muted); font-size: 14px; margin: 0; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
+.about-panel {
+  background: var(--navy); color: white; border-radius: 24px;
+  padding: 32px;
+}
+.about-panel h3 { font-size: 25px; margin-top: 0; }
+.about-panel p { color: #d3e3eb; }
+.benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 22px; }
+.benefit { background: #f3f9fa; border-radius: 12px; padding: 14px; }
+.benefit strong { display: block; color: var(--navy); }
+.benefit span { font-size: 13px; color: var(--muted); }
+.booking { background: var(--light); }
+.booking-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 35px; align-items: start; }
+.booking-info {
+  background: var(--navy); color: white; padding: 30px; border-radius: 20px;
+}
+.booking-info p { color: #d1e2eb; }
+.booking-info h3 { font-size: 25px; margin-top: 0; }
+.form {
+  background: white; border: 1px solid #e1ecef;
+  padding: 28px; border-radius: 20px;
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-weight: bold; font-size: 14px; }
+.field input, .field select, .field textarea {
+  width: 100%; min-width: 0; border: 1px solid #d6e3e7;
+  background: white; border-radius: 9px; padding: 12px;
+  outline-color: var(--teal);
+}
+.field textarea { min-height: 90px; resize: vertical; }
+.form .btn { width: 100%; margin-top: 20px; }
+.notice {
+  margin-top: 15px; padding: 12px; border-radius: 9px;
+  background: #fff6df; color: #785b14; font-size: 13px;
+}
+#result { display: none; margin-top: 15px; padding: 12px; border-radius: 9px; background: #e0f7ed; color: #176344; }
+footer { background: #0b2035; color: white; padding: 30px 0; text-align: center; }
+footer p { color: #c5d6e0; margin: 5px; font-size: 13px; }
+@media(max-width: 800px) {
+  .hero-grid, .about-grid, .booking-grid { grid-template-columns: 1fr; }
+  .hero { padding: 48px 0; }
+  .visual { min-height: 280px; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .links {
+    display: none; position: absolute; top: 78px; right: 0; left: 0;
+    padding: 20px 5%; background: white; border-bottom: 1px solid #ddd;
+    flex-direction: column; align-items: stretch;
+  }
+  .links.open { display: flex; }
+  .menu-btn { display: inline-flex; padding: 9px 12px; }
+  .nav > .btn { display: none; }
+}
+@media(max-width: 520px) {
+  .cards, .form-grid, .benefits { grid-template-columns: 1fr; }
+  .field.full { grid-column: auto; }
+  .section-head h2 { font-size: 27px; }
+  section { padding: 55px 0; }
+  .brand strong { font-size: 14px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="#home" class="brand">
+      <span class="logo">✚</span>
+      <span><strong>عيادة النخبة لطب الأسنان</strong><small>ابتسامتك أمانتنا</small></span>
+    </a>
+    <nav class="links" id="links">
+      <a href="#home">الرئيسية</a>
+      <a href="#services">خدماتنا</a>
+      <a href="#about">عن العيادة</a>
+      <a href="#booking">حجز موعد</a>
+    </nav>
+    <a class="btn" href="#booking">احجز موعدك</a>
+    <button class="btn menu-btn" id="menuBtn" type="button" aria-label="فتح القائمة">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="tag">رعاية متكاملة لأسنانك</span>
+      <h1>ابتسامتك الجميلة تبدأ من <span>هنا</span></h1>
+      <p>نرافقك نحو صحة فم أفضل وابتسامة مشرقة، من خلال العناية بأسنانك والاهتمام براحتك في كل زيارة.</p>
+      <div class="actions">
+        <a class="btn" href="#booking">احجز موعدك الآن</a>
+        <a class="btn secondary" href="#services">اكتشف خدماتنا</a>
+      </div>
+    </div>
+    <div class="visual">
+      <div class="tooth" aria-hidden="true">🦷</div>
+      <strong>ابتسامة صحية، ثقة أكبر</strong>
+      <small>العناية بأسنانك تبدأ بخطوة</small>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <h2>خدماتنا</h2>
+      <p>حلول متنوعة للعناية بصحة أسنانك وجمال ابتسامتك.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon">🦷</div>
+        <h3>علاج الأسنان</h3>
+        <p>فحص الأسنان وتقييم احتياجاتك والعناية بالتسوس ومشكلات الأسنان وفق خطة علاج مناسبة.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">✨</div>
+        <h3>تجميل الأسنان</h3>
+        <p>خيارات لتحسين مظهر الابتسامة، مع تحديد الحل المناسب بعد الفحص والاستشارة.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">😁</div>
+        <h3>تبييض الأسنان</h3>
+        <p>التعرف على خيارات تبييض الأسنان المناسبة لحالتك وتحت إشراف طبيب الأسنان.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🛡️</div>
+        <h3>الوقاية والتنظيف</h3>
+        <p>الاهتمام بنظافة الفم والوقاية والمتابعة الدورية للحفاظ على صحة الأسنان واللثة.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🩺</div>
+        <h3>جراحة الفم</h3>
+        <p>تقييم الحالات التي قد تحتاج إلى تدخل جراحي وتوضيح الخيارات العلاجية المتاحة.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">👨‍👩‍👧</div>
+        <h3>العناية العائلية</h3>
+        <p>إرشادات للعناية اليومية بالأسنان ومتابعة احتياجات صحة الفم لجميع أفراد الأسرة.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div>
+      <span class="tag">نهتم بابتسامتك</span>
+      <h2 style="color:var(--navy);font-size:32px">رعاية تبدأ بالاستماع إليك</h2>
+      <p style="color:var(--muted)">في عيادة النخبة لطب الأسنان، نؤمن بأهمية فهم احتياجات كل مريض وشرح الخيارات المتاحة له بوضوح قبل بدء العلاج.</p>
+      <div class="benefits">
+        <div class="benefit"><strong>✓ اهتمام بالمريض</strong><span>تواصل واضح ومحترم</span></div>
+        <div class="benefit"><strong>✓ خطة مناسبة</strong><span>بحسب التقييم الطبي</span></div>
+        <div class="benefit"><strong>✓ وقاية مستمرة</strong><span>إرشادات لصحة الفم</span></div>
+        <div class="benefit"><strong>✓ متابعة منظمة</strong><span>طلب موعد بسهولة</span></div>
+      </div>
+    </div>
+    <div class="about-panel">
+      <h3>ابتسامتك تستحق العناية</h3>
+      <p>لا تؤجل الاهتمام بصحة فمك. أرسل طلب موعد، وسنحتاج إلى تأكيده معك قبل اعتباره حجزًا نهائيًا.</p>
+      <a class="btn" href="#booking" style="background:white;color:var(--navy)">اطلب موعدًا</a>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="section-head">
+      <h2>اطلب موعدك</h2>
+      <p>أدخل بياناتك لتجهيز طلب الموعد. لم يتم تفعيل الإرسال الفعلي بعد.</p>
+    </div>
+    <div class="booking-grid">
+      <div class="booking-info">
+        <h3>نحن هنا لمساعدتك</h3>
+        <p>اختر الخدمة والتاريخ المناسبين، ثم أرسل طلبك بعد تفعيل نظام الحجز.</p>
+        <p>◷ المواعيد: تُحدّد بالتواصل مع العيادة</p>
+        <p>☎ الهاتف: يُضاف رقم العيادة هنا</p>
+        <p>⌖ العنوان: يُضاف عنوان العيادة هنا</p>
+      </div>
+      <form class="form" id="bookingForm">
+        <div class="form-grid">
+          <div class="field full">
+            <label for="name">الاسم الكامل</label>
+            <input id="name" name="name" type="text" placeholder="اكتب اسمك الكامل" required>
+          </div>
+          <div class="field">
+            <label for="phone">رقم الهاتف</label>
+            <input id="phone" name="phone" type="tel" placeholder="رقم الهاتف" required>
+          </div>
+          <div class="field">
+            <label for="service">نوع الخدمة</label>
+            <select id="service" name="service" required>
+              <option value="">اختر الخدمة</option>
+              <option>فحص الأسنان</option>
+              <option>علاج الأسنان</option>
+              <option>تجميل الأسنان</option>
+              <option>تبييض الأسنان</option>
+              <option>تنظيف الأسنان</option>
+              <option>جراحة الفم</option>
+              <option>استشارة أخرى</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="date">التاريخ المفضل</label>
+            <input id="date" name="date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="time">الوقت المفضل</label>
+            <select id="time" name="time" required>
+              <option value="">اختر الوقت</option>
+              <option>09:00</option><option>10:00</option>
+              <option>11:00</option><option>12:00</option>
+              <option>14:00</option><option>15:00</option>
+              <option>16:00</option><option>17:00</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="notes">ملاحظات إضافية (اختياري)</label>
+            <textarea id="notes" name="notes" placeholder="اكتب ملاحظتك هنا"></textarea>
+          </div>
+        </div>
+        <button class="btn" type="submit">تجربة نموذج الحجز</button>
+        <div id="result" role="status"></div>
+        <div class="notice">تنبيه: هذا نموذج تجريبي فقط. لا يرسل البيانات ولا يحفظها في قاعدة بيانات في هذه المرحلة.</div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <strong>عيادة النخبة لطب الأسنان</strong>
+    <p>ابتسامتك أمانتنا</p>
+    <p>© <span id="year"></span> جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const links = document.getElementById("links");
+menuBtn.addEventListener("click", () => links.classList.toggle("open"));
+links.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => links.classList.remove("open"));
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const dateInput = document.getElementById("date");
+const today = new Date();
+const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+  .toISOString().split("T")[0];
+dateInput.min = localToday;
+
+document.getElementById("bookingForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.textContent = "نجح اختبار النموذج على هذه الصفحة. لم يُرسل طلبك إلى العيادة ولم تُحفظ بياناتك. يلزم ربط النموذج بنظام حجز آمن لتفعيل الإرسال.";
+});
+</script>
+</body>
+</html>
